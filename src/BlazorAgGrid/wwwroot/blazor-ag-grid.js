@@ -100,7 +100,7 @@ window.blazor_ag_grid = {
             console.log("Wrapping SelectionChanged handler");
             gridOptions.onSelectionChanged = function () {
                 blazor_ag_grid.gridOptions_onSelectionChanged(gridOptions, gridEvents);
-            }
+            };
         }
     }
     , gridOptions_callGridApi: function (callbackId, name, args) {
@@ -109,7 +109,7 @@ window.blazor_ag_grid = {
         //console.log("got gridOptions: " + gridOptions);
         var op = gridOptions.Options;
         var api = op.api;
-        var fn = api[name]
+        var fn = api[name];
         //console.log("has Grid API [" + name + "]: " + fn);
         fn.apply(api, args || []);
     }
@@ -118,7 +118,7 @@ window.blazor_ag_grid = {
         var gridOptions = blazor_ag_grid.callbackMap[callbackId];
         //console.log("got gridOptions: " + gridOptions);
         var op = gridOptions.Options;
-        var api = op.columnApi
+        var api = op.columnApi;
         var fn = api[name];
         //console.log("has Column API [" + name + "]: " + fn);
         fn.apply(api, args || []);
