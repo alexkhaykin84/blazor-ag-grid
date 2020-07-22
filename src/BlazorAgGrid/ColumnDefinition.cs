@@ -26,5 +26,8 @@ namespace BlazorAgGrid
 
         [JsonPropertyName("width")]
         public int Width { get; set; }
+
+        [JsonPropertyName("type")]
+        public string Type { get; set; }
     }
 }
