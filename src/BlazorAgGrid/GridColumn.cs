@@ -15,7 +15,7 @@ namespace BlazorAgGrid
         [Parameter] public bool IsResizable { get; set; }
         [Parameter] public bool IsSortable { get; set; }
         [Parameter] public bool IsFiltered { get; set; }
-        [Parameter] public int Width { get; set; }
+        [Parameter] public int? Width { get; set; }
         [Parameter] public string Type { get; set; }
 
         protected override void OnInitialized()

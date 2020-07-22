@@ -25,7 +25,7 @@ namespace BlazorAgGrid
         public bool IsFiltered { get; set; }
 
         [JsonPropertyName("width")]
-        public int Width { get; set; }
+        public int? Width { get; set; }
 
         [JsonPropertyName("type")]
         public string Type { get; set; }
