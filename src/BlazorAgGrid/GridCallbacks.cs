@@ -12,5 +12,10 @@ namespace BlazorAgGrid
         public Func<JsonElement, string> GetRowNodeId { set => Set(value); }
 
         public Func<JsonElement, string[]> GetDataPath { set => Set(value); }
+
+        #region Callbacks used with ServerSide Row Model
+        public Func<JsonElement, bool> IsServerSideGroup { set => Set(value); }
+        public Func<JsonElement, string> GetServerSideGroupKey { set => Set(value); }
+        #endregion
     }
 }

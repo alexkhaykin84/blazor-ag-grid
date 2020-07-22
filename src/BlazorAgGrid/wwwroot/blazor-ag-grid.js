@@ -61,7 +61,7 @@ window.blazor_ag_grid = {
                 var id = gridCallbacks.handlers.GetRowNodeId.jsRef.invokeMethod("Invoke", data);
                 //console.log("gridOptions.getRowNodeId >>> [" + id + "]");
                 return id;
-            }
+            };
         }
         if (gridCallbacks.handlers.GetDataPath) {
             //console.log("Wrapping GetDataPath handler");
@@ -70,6 +70,27 @@ window.blazor_ag_grid = {
                 var path = gridCallbacks.handlers.GetDataPath.jsRef.invokeMethod("Invoke", data);
                 //console.log("gridOptions.getDataPath >>> [" + path + "]");
                 return path;
+            };
+        }
+
+        if (gridOptions.rowModelType === "serverSide") {
+            if (gridCallbacks.handlers.IsServerSideGroup) {
+                //console.log("Wrapping IsServerSideGroup handler");
+                gridOptions.isServerSideGroup = function (data) {
+                    //console.log("gridOptions.isServerSideGroup <<< " + JSON.stringify(data));
+                    var path = gridCallbacks.handlers.IsServerSideGroup.jsRef.invokeMethod("Invoke", data);
+                    //console.log("gridOptions.isServerSideGroup >>> [" + path + "]");
+                    return path;
+                };
+            }
+            if (gridCallbacks.handlers.GetServerSideGroupKey) {
+                //console.log("Wrapping GetServerSideGroupKey handler");
+                gridOptions.getServerSideGroupKey = function (data) {
+                    //console.log("gridOptions.getServerSideGroupKey <<< " + JSON.stringify(data));
+                    var path = gridCallbacks.handlers.GetServerSideGroupKey.jsRef.invokeMethod("Invoke", data);
+                    //console.log("gridOptions.getServerSideGroupKey >>> [" + path + "]");
+                    return path;
+                };
             }
         }
     }
